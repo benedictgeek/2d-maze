@@ -1,9 +1,11 @@
-import { CELL_SIZE } from "../../utils/dimensions";
+import { CELL_SIZE, BORDER_SIZE } from "../../utils/dimensions";
 import { maze } from "../../utils/generate-maze-coord";
 import styles from "./maze.module.scss";
 
 export let drawCellBorder = (isSideClosed) =>
-  isSideClosed ? "2px solid black" : "2px solid rgba(128, 128, 128, 0.05)";
+  isSideClosed
+    ? `${BORDER_SIZE}px solid black`
+    : `${BORDER_SIZE}px solid rgba(128, 128, 128, 0.05)`;
 
 export let Maze = () => {
   let mazeRowElements = [];
@@ -37,7 +39,8 @@ export let Maze = () => {
     <div
       className={styles.mazeContainer}
       style={{
-        height: `${CELL_SIZE * maze.length}px`,
+        //the height is inclusive of the border additions (top/bottom)
+        height: `${(CELL_SIZE + BORDER_SIZE * 2) * maze.length}px`,
         width: `${CELL_SIZE * maze.length}px`,
       }}
     >

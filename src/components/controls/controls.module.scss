@@ -1,0 +1,28 @@
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.controlRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.controlRowVert {
+  justify-content: center;
+}
+
+.control {
+  width: 30%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  border-radius: 15px;
+  background-color: grey;
+  font-weight: bold;
+  color: white;
+}
