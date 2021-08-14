@@ -1,0 +1,21 @@
+.title {
+  padding: 1px 0;
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.scoreInfo {
+  display: flex;
+  padding: 5px 0;
+}
+
+.scoreInfo :first-child {
+  margin-right: 10px;
+  font-weight: lighter;
+}
+
+.scoreInfo :last-child {
+  font-weight: bold;
+}
