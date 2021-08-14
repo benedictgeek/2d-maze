@@ -16,6 +16,8 @@ export let ScoreBoard = () => {
         <div>Time of completion: </div>
         <div>05:56</div>
       </div>
+
+      <div className={styles.button}>Start</div>
     </div>
   );
 };

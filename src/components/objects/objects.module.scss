@@ -1,0 +1,14 @@
+.object {
+  position: absolute;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball {
+  height: calc(100% - 5px);
+  width: calc(100% - 5px);
+  background-color: white;
+  border-radius: 50%;
+}
