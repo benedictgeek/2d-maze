@@ -56,7 +56,7 @@ export let maze = [
     getCellDetails({ bottom: false }),
     getCellDetails({ top: false, bottom: false }),
     getCellDetails({ right: false }),
-    getCellDetails({ left: false, right: false }),
+    getCellDetails({ top: false, left: false, right: false }),
     getCellDetails({ top: false, left: false }),
     getCellDetails({ bottom: false, right: false, isExit: true }),
   ],
@@ -89,4 +89,3 @@ export let maze = [
   ],
 ];
 
-console.log(maze);
