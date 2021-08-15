@@ -12,19 +12,17 @@ export let ScoreBoard = () => {
     // const handleKeyPress = (key) => getNewBallCoord(key);
   }, []);
   const handleKeyPress = ({ key }) => {
-    console.log("KEY PRESSED", key);
     if (key == "Enter") {
       handleGameStart();
     }
   };
   let handleGameStart = () => {
-    if (!inProgress) {
-      setResetStateDispatch({
-        ...initialGameState,
-        ballXY: { x: 0, y: 0 },
-        inProgress: true,
-      });
-    }
+    if (inProgress == true) return;
+    setResetStateDispatch({
+      ...initialGameState,
+      ballXY: { x: 0, y: 0 },
+      inProgress: true,
+    });
   };
 
   return (
