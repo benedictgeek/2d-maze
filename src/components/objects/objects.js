@@ -12,6 +12,16 @@ export let PlayerBall = () => {
   );
 };
 
+export let Coin = () => {
+  let { state } = useGameContext();
+  let { coinXY } = state;
+  return (
+    <ObjectWrapper x={coinXY.x} y={coinXY.y}>
+      <div className={styles.ball}></div>
+    </ObjectWrapper>
+  );
+};
+
 let ObjectWrapper = ({ x = 0, y = 0, ...props }) => {
   return (
     <div

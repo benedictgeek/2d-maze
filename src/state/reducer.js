@@ -1,4 +1,4 @@
-import { MOVE_BALL } from "./types";
+import { MOVE_BALL, MOVES } from "./types";
 
 export const userReducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ export const userReducer = (state, action) => {
       return {
         ...state,
         ballXY: action.payload,
+      };
+    case MOVES:
+      return {
+        ...state,
+        moves: action.payload,
       };
     default:
       return state;

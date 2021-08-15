@@ -1,12 +1,10 @@
-import { useGameContext } from "../../state/gameContext";
-import { getNewBallCoord } from "../../utils/handleBallDirection";
+import { useMazeCoord } from "../../utils/handleBallDirection";
 import styles from "./controls.module.scss";
 
 export let Controls = () => {
-  let { state, moveBallDispatch } = useGameContext();
-  let { ballXY } = state;
-  const handleKeyPress = (key) =>
-    moveBallDispatch(getNewBallCoord(key, ballXY));
+  let { getNewBallCoord } = useMazeCoord();
+
+  const handleKeyPress = (key) => getNewBallCoord(key);
   return (
     <div className={styles.controlsContainer}>
       <div className={`${styles.controlRow} ${styles.controlRowVert}`}>
