@@ -1,6 +1,8 @@
 import { useGameContext } from "../../state/gameContext";
 import { CELL_SIZE, BORDER_SIZE } from "../../utils/dimensions";
 import styles from "./objects.module.scss";
+import coinImg from "../../asset/images/coin.png";
+import bombImg from "../../asset/images/bomb.png";
 
 export let PlayerBall = () => {
   let { state } = useGameContext();
@@ -17,8 +19,22 @@ export let Coin = () => {
   let { coinXY } = state;
   return (
     <ObjectWrapper x={coinXY.x} y={coinXY.y}>
-      <div className={styles.ball}></div>
+      <img className={styles.coin} src={coinImg} />
     </ObjectWrapper>
+  );
+};
+
+export let Bomb = () => {
+  let { state } = useGameContext();
+  let { bombXY } = state;
+  return (
+    <>
+      {bombXY.x && (
+        <ObjectWrapper x={bombXY.x} y={bombXY.y}>
+          <img className={styles.coin} src={bombImg} />
+        </ObjectWrapper>
+      )}
+    </>
   );
 };
 

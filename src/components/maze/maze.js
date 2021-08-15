@@ -1,6 +1,6 @@
 import { CELL_SIZE, BORDER_SIZE } from "../../utils/dimensions";
 import { maze } from "../../utils/generate-maze-coord";
-import { PlayerBall } from "../objects/objects";
+import { Bomb, Coin, PlayerBall } from "../objects/objects";
 import styles from "./maze.module.scss";
 
 export let drawCellBorder = (isSideClosed) =>
@@ -47,6 +47,8 @@ export let Maze = () => {
     >
       {mazeRowElements}
       <PlayerBall />
+      <Coin />
+      <Bomb />
     </div>
   );
 };
