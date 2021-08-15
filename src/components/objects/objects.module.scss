@@ -5,28 +5,14 @@
   justify-content: center;
   align-items: center;
 }
-
-.ball {
-  height: calc(100% - 5px);
-  width: calc(100% - 5px);
-  background-color: white;
-  border-radius: 50%;
-}
-
 .coin {
   height: calc(100% - 5px);
   width: calc(100% - 5px);
 }
 
-// @mixin animate($animation, $duration, $method, $times) {
-//   animation: $animation $duration $method $times;
-// }
-
-// @mixin keyframes($name) {
-//   @keyframes #{$name} {
-//     @content;
-//   }
-// }
+.bomb {
+  animation: move-bomb 1s infinite;
+}
 
 .coinFlip {
   animation: coin-rotate 2s both infinite;
@@ -41,5 +27,17 @@
   }
   100% {
     transform: rotateY(0deg);
+  }
+}
+
+@keyframes move-bomb {
+  0% {
+    transform: translateX(-2px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(2px);
   }
 }
