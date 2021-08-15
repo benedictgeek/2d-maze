@@ -6,6 +6,9 @@ import {
   setCoin,
   setBomb,
   setCoinCount,
+  setInProgress,
+  setResetState,
+  setTimer,
 } from "./actions";
 import { userReducer } from "./reducer";
 
@@ -14,12 +17,15 @@ const GameContext = React.createContext();
 export let useGameContext = () => useContext(GameContext);
 
 export let initialGameState = {
-  inProgress: true,
+  inProgress: false,
+  timer: null,
   coins: 0,
   moves: 0,
   ballXY: { x: 0, y: 0 },
-  bombXY: {},
+  bombXY: generateCoinCoord({ x: 0, y: 0 }),
   coinXY: generateCoinCoord({ x: 0, y: 0 }),
+  seconds: 0,
+  minutes: 0,
 };
 export let GameContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialGameState);
@@ -42,6 +48,17 @@ export let GameContextProvider = ({ children }) => {
     setCoinCount(dispatch, payload);
   };
 
+  const setInProgresDispatch = (payload = true) => {
+    setInProgress(dispatch, payload);
+  };
+
+  const setResetStateDispatch = (payload = true) => {
+    setResetState(dispatch, payload);
+  };
+  const setTimerDispatch = (payload = true) => {
+    setTimer(dispatch, payload);
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -51,6 +68,9 @@ export let GameContextProvider = ({ children }) => {
         setCoinDispatch,
         setBombDispatch,
         setCoinsCountDispatch,
+        setInProgresDispatch,
+        setResetStateDispatch,
+        setTimerDispatch,
       }}
     >
       {children}

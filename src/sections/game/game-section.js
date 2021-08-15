@@ -3,11 +3,13 @@ import { Controls } from "../../components/controls/controls";
 import { Maze } from "../../components/maze/maze";
 import { useGameContext } from "../../state/gameContext";
 import { useBomb, useMazeCoord } from "../../utils/handleBallDirection";
+import { useTimer } from "../../utils/handleTimer";
 import styles from "./game-section.module.scss";
 export let GameSection = () => {
+  useTimer();
   useBomb();
-  let { state } = useGameContext();
-  let { ballXY, coinXY, bombXY } = state;
+  let { state, setInProgresDispatch } = useGameContext();
+  let { ballXY, coinXY, bombXY, inProgress } = state;
   let { getNewBallCoord, getNewCoinCoord } = useMazeCoord();
   useEffect(() => {
     const handleKeyPress = ({ key }) => getNewBallCoord(key);
@@ -24,12 +26,14 @@ export let GameSection = () => {
   }, [ballXY]);
 
   useEffect(() => {
-    //checking for ball bomb clash
-    if (bombXY.x == ballXY.x && bombXY.y == ballXY.y) {
+    //checking for ball and bomb clash
+    console.log("CLASHING BALLS", ballXY, bombXY);
+    if (inProgress && bombXY.x == ballXY.x && bombXY.y == ballXY.y) {
       //stop game and notify player
-      alert("GAME OVER! You stepped on a bomb!");
+      setInProgresDispatch(false);
+      alert("GAME OVER! Watch your steps!");
     }
-  }, [ballXY, bombXY]);
+  }, [inProgress, ballXY, bombXY]);
 
   return (
     <div>

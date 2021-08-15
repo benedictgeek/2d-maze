@@ -1,27 +1,10 @@
 import { useEffect, useState } from "react";
-import { useGameContext } from "../../state/gameContext";
+import { initialGameState, useGameContext } from "../../state/gameContext";
 import styles from "./score-board.module.scss";
 
 export let ScoreBoard = () => {
-  let { state } = useGameContext();
-  let { coins, moves, inProgress } = state;
-  let [seconds, setSeconds] = useState(0);
-  let [mins, setMins] = useState(0);
-  let [counter, setCounter] = useState(0);
-  let [isActive, setIsActive] = useState(false);
-  let timer;
-  // let timerFn = () => {
-  //   setCounter((counter) => counter + 1);
-  // };
-
-  // useEffect(() => {
-  //   if (isActive) {
-  //     setSeconds(counter % 60);
-  //     setMins(Math.floor(counter / 60));
-  //   }
-
-  //   return () => clearInterval(timer);
-  // }, [counter, isActive, inProgress]);
+  let { state, setResetStateDispatch } = useGameContext();
+  let { coins, moves, inProgress, minutes, seconds } = state;
 
   return (
     <div>
@@ -37,27 +20,26 @@ export let ScoreBoard = () => {
       <div className={styles.scoreInfo}>
         <div>Time of completion: </div>
         <div>
-          {mins.toString().padStart(2, "0")}:
+          {minutes.toString().padStart(2, "0")}:
           {seconds.toString().padStart(2, "0")}
         </div>
       </div>
 
       <div
-        className={styles.button}
+        className={`${styles.button} ${inProgress && styles.disabled}`}
         onClick={() => {
-          // if (inProgress == false) {
-          //   //reset timer
-          //   setCounter(0);
-          //   // setMins(0);
-          //   // setSeconds(0);
-          // } else {
-          //   timer = setInterval(() => {
-          //     timerFn();
-          //   }, 1000);
-          // }
+          // setCounter(0);
+          // timer = setInterval(() => {
+          //   timerFn();
+          // }, 1000);
+          setResetStateDispatch({
+            ...initialGameState,
+            ballXY: { x: 0, y: 0 },
+            inProgress: true,
+          });
         }}
       >
-        Start
+        {inProgress ? "In progress" : "Start"}
       </div>
     </div>
   );

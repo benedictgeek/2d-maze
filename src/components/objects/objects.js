@@ -29,11 +29,11 @@ export let Bomb = () => {
   let { bombXY } = state;
   return (
     <>
-      {bombXY.x && (
+      {/* {bombXY.x && ( */}
         <ObjectWrapper x={bombXY.x} y={bombXY.y}>
           <img className={styles.coin} src={bombImg} />
         </ObjectWrapper>
-      )}
+       {/* )} */}
     </>
   );
 };

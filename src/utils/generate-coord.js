@@ -6,10 +6,11 @@ export let generateCoinCoord = (ballCoord) => {
     let coord = generateCoord();
     //a recursive approach to always generate coin in a cell not occupied by ball
     if (coord.x == ballCoord.x && coord.y == ballCoord.y) {
-      generateCoinCoord();
+      generateCoinCoord(ballCoord);
     }
     return coord;
   } catch (error) {
+    // generateCoinCoord(ballCoord);
     console.log("Problem generating new coord");
   }
 };

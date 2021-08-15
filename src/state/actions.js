@@ -1,4 +1,13 @@
-import { MOVE_BALL, MOVES, SET_COIN, COINS, SET_BOMB } from "./types";
+import {
+  MOVE_BALL,
+  MOVES,
+  SET_COIN,
+  COINS,
+  SET_BOMB,
+  SET_IN_PROGRESS,
+  RESET_STATE,
+  SET_TIMER,
+} from "./types";
 
 export let moveBall = (dispatch, payload) => {
   dispatch({ type: MOVE_BALL, payload });
@@ -18,4 +27,16 @@ export let setBomb = (dispatch, payload) => {
 
 export let setCoinCount = (dispatch, payload) => {
   dispatch({ type: COINS, payload });
+};
+
+export let setInProgress = (dispatch, payload) => {
+  dispatch({ type: SET_IN_PROGRESS, payload });
+};
+
+export let setResetState = (dispatch, payload) => {
+  dispatch({ type: RESET_STATE, payload });
+};
+
+export let setTimer = (dispatch, payload) => {
+  dispatch({ type: SET_TIMER, payload });
 };

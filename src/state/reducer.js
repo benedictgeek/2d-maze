@@ -1,4 +1,13 @@
-import { MOVE_BALL, MOVES, SET_COIN, COINS, SET_BOMB } from "./types";
+import {
+  MOVE_BALL,
+  MOVES,
+  SET_COIN,
+  COINS,
+  SET_BOMB,
+  SET_IN_PROGRESS,
+  RESET_STATE,
+  SET_TIMER,
+} from "./types";
 
 export const userReducer = (state, action) => {
   switch (action.type) {
@@ -26,6 +35,21 @@ export const userReducer = (state, action) => {
       return {
         ...state,
         coins: action.payload,
+      };
+    case SET_IN_PROGRESS:
+      return {
+        ...state,
+        inProgress: action.payload,
+      };
+    case RESET_STATE:
+      return {
+        ...action.payload,
+      };
+    case SET_TIMER:
+      return {
+        ...state,
+        seconds: action.payload.s,
+        minutes: action.payload.m,
       };
 
     default:
