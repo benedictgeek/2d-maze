@@ -10,7 +10,7 @@ export let PlayerBall = () => {
   let { ballXY } = state;
   return (
     <ObjectWrapper x={ballXY.x} y={ballXY.y}>
-      <img className={styles.coin} src={ballImg} />
+      <img className={`${styles.coin} ${styles.objectRotate}`} src={ballImg} />
       {/* <div className={styles.ball}></div> */}
     </ObjectWrapper>
   );
@@ -21,7 +21,7 @@ export let Coin = () => {
   let { coinXY } = state;
   return (
     <ObjectWrapper x={coinXY.x} y={coinXY.y}>
-      <img className={styles.coin} src={coinImg} />
+      <img className={`${styles.coin} ${styles.coinFlip}`} src={coinImg} />
     </ObjectWrapper>
   );
 };
@@ -32,10 +32,10 @@ export let Bomb = () => {
   return (
     <>
       {/* {bombXY.x && ( */}
-        <ObjectWrapper x={bombXY.x} y={bombXY.y}>
-          <img className={styles.coin} src={bombImg} />
-        </ObjectWrapper>
-       {/* )} */}
+      <ObjectWrapper x={bombXY.x} y={bombXY.y}>
+        <img className={styles.coin} src={bombImg} />
+      </ObjectWrapper>
+      {/* )} */}
     </>
   );
 };
