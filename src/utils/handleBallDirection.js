@@ -102,7 +102,8 @@ export let useBomb = () => {
         }
 
         //bomb should not meet ball but ball running into bomb
-        if (!(newBombCell.x == ballXY.x && newBombCell.y == ballXY.y)) {
+        console.log(newBombCell, ballXY);
+        if (!(newBombCell.x === ballXY.x && newBombCell.y === ballXY.y)) {
           setBombDispatch(newBombCell);
         }
       } catch (error) {

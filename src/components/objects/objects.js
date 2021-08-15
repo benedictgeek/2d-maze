@@ -3,13 +3,15 @@ import { CELL_SIZE, BORDER_SIZE } from "../../utils/dimensions";
 import styles from "./objects.module.scss";
 import coinImg from "../../asset/images/coin.png";
 import bombImg from "../../asset/images/bomb.png";
+import ballImg from "../../asset/images/ball.png";
 
 export let PlayerBall = () => {
   let { state } = useGameContext();
   let { ballXY } = state;
   return (
     <ObjectWrapper x={ballXY.x} y={ballXY.y}>
-      <div className={styles.ball}></div>
+      <img className={styles.coin} src={ballImg} />
+      {/* <div className={styles.ball}></div> */}
     </ObjectWrapper>
   );
 };
