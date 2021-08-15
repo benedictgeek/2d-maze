@@ -11,7 +11,7 @@ export let generateCoinCoord = (ballCoord) => {
     return coord;
   } catch (error) {
     // generateCoinCoord(ballCoord);
-    console.log("Problem generating new coord");
+
   }
 };
 

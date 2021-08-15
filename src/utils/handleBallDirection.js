@@ -73,7 +73,7 @@ export let useBomb = () => {
     let bombInitiatorCell = maze[startingCell.y][startingCell.x];
     let isHorizontal =
       bombInitiatorCell.left == false || bombInitiatorCell.right == false;
-    // return console.log("Starting - CEll", bombInitiatorCell, isHorizontal);
+
 
     let newBombCell = { ...bombInitiatorCell };
     pathTimer = setInterval(() => {
@@ -102,12 +102,12 @@ export let useBomb = () => {
         }
 
         //bomb should not meet ball but ball running into bomb
-        console.log(newBombCell, ballXY);
+
         if (!(newBombCell.x === ballXY.x && newBombCell.y === ballXY.y)) {
           setBombDispatch(newBombCell);
         }
       } catch (error) {
-        console.log("ERRROR FROM 1", error);
+
       }
     }, 1000);
   };

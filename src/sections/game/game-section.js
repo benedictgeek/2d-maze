@@ -28,7 +28,7 @@ export let GameSection = () => {
 
   useEffect(() => {
     //checking for ball and bomb clash
-    console.log("CLASHING BALLS", ballXY, bombXY);
+
     if (inProgress && bombXY.x == ballXY.x && bombXY.y == ballXY.y) {
       //stop game and notify player
       alert("GAME OVER! Watch your steps and keep it moving!");
