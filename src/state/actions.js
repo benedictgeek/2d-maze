@@ -7,6 +7,7 @@ import {
   SET_IN_PROGRESS,
   RESET_STATE,
   SET_TIMER,
+  SET_FEEDBACK
 } from "./types";
 
 export let moveBall = (dispatch, payload) => {
@@ -39,4 +40,8 @@ export let setResetState = (dispatch, payload) => {
 
 export let setTimer = (dispatch, payload) => {
   dispatch({ type: SET_TIMER, payload });
+};
+
+export let setFeedback = (dispatch, payload) => {
+  dispatch({ type: SET_FEEDBACK, payload });
 };

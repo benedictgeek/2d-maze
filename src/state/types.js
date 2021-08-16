@@ -6,3 +6,4 @@ export let COINS = "COINS";
 export let SET_IN_PROGRESS = "SET_IN_PROGRESS";
 export let RESET_STATE = "RESET_STATE";
 export let SET_TIMER = "SET_TIMER";
+export let SET_FEEDBACK = "SET_FEEDBACK";

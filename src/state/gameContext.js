@@ -9,6 +9,7 @@ import {
   setInProgress,
   setResetState,
   setTimer,
+  setFeedback,
 } from "./actions";
 import { userReducer } from "./reducer";
 
@@ -26,6 +27,7 @@ export let initialGameState = {
   coinXY: generateCoinCoord({ x: 0, y: 0 }),
   seconds: 0,
   minutes: 0,
+  feedback: "",
 };
 export let GameContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(userReducer, initialGameState);
@@ -59,6 +61,10 @@ export let GameContextProvider = ({ children }) => {
     setTimer(dispatch, payload);
   };
 
+  const setFeedbackDispatch = (payload = true) => {
+    setFeedback(dispatch, payload);
+  };
+
   return (
     <GameContext.Provider
       value={{
@@ -71,6 +77,7 @@ export let GameContextProvider = ({ children }) => {
         setInProgresDispatch,
         setResetStateDispatch,
         setTimerDispatch,
+        setFeedbackDispatch,
       }}
     >
       {children}

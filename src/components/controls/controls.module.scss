@@ -27,6 +27,7 @@
   color: white;
   cursor: pointer;
   box-shadow: 3px 2px 15px 1px rgba(0, 0, 0, 0.24);
+  transition: all 250ms ease-in-out 0;
 }
 
 .control:hover {

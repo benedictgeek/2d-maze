@@ -7,6 +7,7 @@ import {
   SET_IN_PROGRESS,
   RESET_STATE,
   SET_TIMER,
+  SET_FEEDBACK,
 } from "./types";
 
 export const userReducer = (state, action) => {
@@ -50,6 +51,11 @@ export const userReducer = (state, action) => {
         ...state,
         seconds: action.payload.s,
         minutes: action.payload.m,
+      };
+    case SET_FEEDBACK:
+      return {
+        ...state,
+        feedback: action.payload,
       };
 
     default:

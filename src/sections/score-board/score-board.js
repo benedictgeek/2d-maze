@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { feedbackTypes } from "../../components/maze/maze";
 import { initialGameState, useGameContext } from "../../state/gameContext";
 import styles from "./score-board.module.scss";
 
 export let ScoreBoard = () => {
-  let { state, setResetStateDispatch } = useGameContext();
+  let { state, setResetStateDispatch, setFeedbackDispatch } = useGameContext();
   let { coins, moves, inProgress, minutes, seconds } = state;
 
   useEffect(() => {
@@ -18,6 +19,7 @@ export let ScoreBoard = () => {
   };
   let handleGameStart = () => {
     if (inProgress == true) return;
+    setFeedbackDispatch(feedbackTypes.INPROGRESS);
     setResetStateDispatch({
       ...initialGameState,
       ballXY: { x: 0, y: 0 },

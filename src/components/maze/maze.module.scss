@@ -8,3 +8,23 @@
   display: flex;
   flex-direction: row;
 }
+
+.notificationContainer {
+  background-color: rgba(255, 255, 255, 0.61);
+  position: absolute;
+  transition: all 300ms ease-in-out 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // padding: 10px;
+}
+
+.notiticationSubtitle {
+  color: black;
+  padding: 5px;
+  width: auto;
+  font-weight: bold;
+  text-align: center;
+}
